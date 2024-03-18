@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 
-import { Container, Row, Col, Modal, Button } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import CardProduct from "../../components/CardProduct";
 import { products } from "../../utils/mocksData";
 import Payment from "../Payment";
 
 function Home() {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   return (
-    <Container className="p-5 mb-4 rounded-3">
+    <Container className="p-5 mb-4 rounded-3" data-testid="container-home">
       <h1 className="header mb-5">Welcome </h1>
       <Row>
         {products.map((item) => (
@@ -26,9 +24,12 @@ function Home() {
         onHide={() => setShow(false)}
         size="xl"
         animation={false}
+        scrollable
+        backdrop="static"
       >
+        <Modal.Header closeButton>Card Data</Modal.Header>
         <Modal.Body>
-          <Payment />
+          <Payment {...{ setShow }} />
         </Modal.Body>
       </Modal>
     </Container>
