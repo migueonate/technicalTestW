@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Row, Col, Modal, Button, Accordion } from "react-bootstrap";
+import { Container, Modal, Button, Accordion } from "react-bootstrap";
 import Payment from "../Payment";
 import { useDispatch, useSelector } from "react-redux";
 import { resetCardState } from "../../redux/cardSlice";
